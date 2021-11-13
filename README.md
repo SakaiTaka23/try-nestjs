@@ -26,6 +26,10 @@
   - [グローバルミドルウェア](#グローバルミドルウェア)
 - [Exception filters](#exception-filters)
   - [基本的なエラーを返す](#基本的なエラーを返す)
+- [Pipes](#pipes)
+  - [組み込みのパイプ](#組み込みのパイプ)
+  - [パイプの使用](#パイプの使用)
+  - [カスタムパイプ](#カスタムパイプ)
 
 
 # First steps
@@ -269,4 +273,39 @@ nest g service servicename
 - メッセージをオブジェクトにすると追加のメッセージを入れることができる
 
 - Exception filters自体そのまま使っても特に問題はなさそう
+
+
+
+# Pipes
+- @Injectable()デコレーターを使用する
+- PipeTransformインターフェースを継承する
+
+**使い道**
+- transformation インプットデータを正しい型に変換する(string → integer)
+- validation 満たしていればそのまま返す 満たしていなければエラーを返す
+
+- コントローラーへの引数に対して行われている
+- Nestは関数が実行される前にパイプを通す
+
+
+
+##  組み込みのパイプ
+- ValidationPipe
+- ParseIntPipe
+- ParseFloatPipe
+- ParseBoolPipe
+- ParseArrayPipe
+- ParseUUIDPipe
+- ParseEnumPipe
+- DefaultValuePipe
+
+
+
+## パイプの使用
+- コントローラーの引数でパイプを使うと使用することができる
+
+
+## カスタムパイプ
+- パイプは自作も可能
+  
 

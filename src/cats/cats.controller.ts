@@ -1,23 +1,20 @@
-import { Controller, Get, HttpCode, Param, Post } from '@nestjs/common';
+import { Body, Controller, Get, HttpCode, Post } from '@nestjs/common';
+import { CatsService } from './cats.service';
+import { createCatDto } from './dto/create-cat.dto';
+import { Cat } from './interface/cat.interface';
 
 @Controller('cats')
 export class CatsController {
+  constructor(private catsService: CatsService) {}
+
   @Post()
   @HttpCode(200)
-  create(): string {
-    return 'This action adds a new cat';
-  }
-
-  @Get(':id')
-  // findOne(@Param() params): string {
-  //   return `This action returns a #${params.id} cat`;
-  // }
-  findOne(@Param('id') id: string): string {
-    return `This action returns a #${id} cat`;
+  create(@Body() createCatDto: createCatDto) {
+    this.catsService.create(createCatDto);
   }
 
   @Get()
-  findAll(): string {
-    return 'This action returns all cats';
+  async findAll(): Promise<Cat[]> {
+    return this.catsService.findAll();
   }
 }

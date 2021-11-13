@@ -31,6 +31,7 @@
   - [パイプの使用](#パイプの使用)
   - [カスタムパイプ](#カスタムパイプ)
 - [Guards](#guards)
+- [Interceptors](#interceptors)
 
 
 # First steps
@@ -327,5 +328,19 @@ nest g service servicename
 - **Guardsはミドルウェアの後・インターセプターやパイプの前に実行される**
 
 - 認証や権限の確認あたりがユースケース？
+
+
+
+# Interceptors
+- @Injectable()デコレーターを使用する
+- NestInterceptorインターフェースを実装する
+
+**目的**
+- 処理前後のロジック追加
+- 関数から帰ってきたデータを変換
+- 関数から出た例外を変換
+- 関数の挙動を拡張
+- 状況によって関数の挙動を完全に上書きする
+
 
 

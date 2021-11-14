@@ -5,6 +5,7 @@
   - [Getting started with GraphQL & TypeScript](#getting-started-with-graphql--typescript)
 - [Tutorial](#tutorial)
 - [Fundamentals](#fundamentals)
+- [Database Integration](#database-integration)
 
 
 
@@ -31,6 +32,13 @@ https://www.youtube.com/watch?v=geYvdbpo3cA&list=WL
 - code base vs schema base
   - typeormでモデルが流用できるからcode baseの方が良いよ
 
+- 使ったライブラリ
+
+```shell
+yarn add @nestjs/graphql graphql-tools graphql apollo-server-express
+```
+
+
 - 現状graphql v16で動かないのでバージョンを下げること
 
 ```shell
@@ -50,3 +58,15 @@ nest g service service-name
 nest g module module-name
 ```
 
+- inputを作る理由
+  - バリデーションができるようになる
+- バリデーションライブラリ
+
+```shell
+yarn add class-validator class-transformer
+```
+
+
+
+# Database Integration
+- 今回はTypeORMを使ってみる

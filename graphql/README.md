@@ -5,7 +5,6 @@
   - [Getting started with GraphQL & TypeScript](#getting-started-with-graphql--typescript)
 - [Tutorial](#tutorial)
 - [Fundamentals](#fundamentals)
-- [Database Integration](#database-integration)
 
 
 
@@ -66,7 +65,9 @@ nest g module module-name
 yarn add class-validator class-transformer
 ```
 
+- コマンドでのリソース生成
 
-
-# Database Integration
-- 今回はTypeORMを使ってみる
+```shell
+nest g resource resource-name
+```
+- crudの生成をしてくれる

@@ -1,6 +1,7 @@
 # try-nestjs
 
 - [try-nestjs](#try-nestjs)
+- [OVERVIEW](#overview)
 - [First steps](#first-steps)
   - [ディレクトリ構成](#ディレクトリ構成)
 - [Controllers](#controllers)
@@ -32,6 +33,12 @@
   - [カスタムパイプ](#カスタムパイプ)
 - [Guards](#guards)
 - [Interceptors](#interceptors)
+- [FUNDAMENTALS](#fundamentals)
+- [Custom providers](#custom-providers)
+
+
+# OVERVIEW
+
 
 
 # First steps
@@ -342,5 +349,17 @@ nest g service servicename
 - 関数の挙動を拡張
 - 状況によって関数の挙動を完全に上書きする
 
+
+
+# FUNDAMENTALS
+
+
+
+# Custom providers
+- コンストラクタインジェクション以外の手法について説明
+- @Injectable()デコレーターによってサービスをプロパイダとすることができる
+- プロパイダにモックをすることで簡単にテストが可能
+- 同じ名前で依存内容だけ変えることもできそう？
+- クラス以外の文字列もDI可能
 
 

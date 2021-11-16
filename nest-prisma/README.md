@@ -3,6 +3,7 @@
 - [nest-prisma](#nest-prisma)
 - [インストール](#インストール)
 - [モデルの生成](#モデルの生成)
+- [クライアント生成](#クライアント生成)
 
 - nestとprismaでの開発を体験してみる
   
@@ -28,3 +29,10 @@ npx prisma init
 npx prisma migrate dev --name init
 ```
 - データベースとマーグレーションファイルが生成される
+
+
+
+# クライアント生成
+- prisma generateコマンドを打つとモデル特有のCRUDオペレーションを生成することができる
+- 生成されたコードはnode_modules/@prisma/client内に入っている?
+- 

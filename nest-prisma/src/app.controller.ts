@@ -1,84 +1,32 @@
-import {
-  Body,
-  Controller,
-  Delete,
-  Get,
-  Param,
-  Post,
-  Put,
-} from '@nestjs/common';
-import { PostService } from './post.service';
-import { UserService } from './user.service';
-import { User as UserModel, Post as PostModel } from '@prisma/client';
+import { Body, Controller, Get, Param, Post } from '@nestjs/common';
+import { AppService } from './app.service';
+import { CreateUserDto } from './dto/create-user.input';
+import { PrismaService } from './prisma/prisma.service';
 
 @Controller()
 export class AppController {
   constructor(
-    private readonly userService: UserService,
-    private readonly postService: PostService,
+    private readonly appService: AppService,
+    private readonly prisma: PrismaService,
   ) {}
 
-  @Get('post/:id')
-  async getPostById(@Param('id') id: string): Promise<PostModel> {
-    return this.postService.post({ id: Number(id) });
+  @Get()
+  getHello(): string {
+    return this.appService.getHello();
   }
 
-  @Get('feed')
-  async getPublishedPosts(): Promise<PostModel[]> {
-    return this.postService.posts({
-      where: { published: true },
-    });
+  @Get('users')
+  async users() {
+    return await this.prisma.user.findMany();
   }
 
-  @Get('filtered-posts/:searchString')
-  async getFilteredPosts(
-    @Param('searchString') searchString: string,
-  ): Promise<PostModel[]> {
-    return this.postService.posts({
-      where: {
-        OR: [
-          {
-            title: { contains: searchString },
-          },
-          {
-            content: { contains: searchString },
-          },
-        ],
-      },
-    });
-  }
-
-  @Post('post')
-  async createDraft(
-    @Body() postData: { title: string; content?: string; authorEmail: string },
-  ): Promise<PostModel> {
-    const { title, content, authorEmail } = postData;
-    return this.postService.createPost({
-      title,
-      content,
-      author: {
-        connect: { email: authorEmail },
-      },
-    });
+  @Get('users/:id')
+  async user(@Param('id') id: string) {
+    return await this.prisma.user.findUnique({ where: { id: +id } });
   }
 
   @Post('user')
-  async signupUser(
-    @Body() userData: { name?: string; email: string },
-  ): Promise<UserModel> {
-    return this.userService.createUser(userData);
-  }
-
-  @Put('publish/:id')
-  async publishPost(@Param('id') id: string): Promise<PostModel> {
-    return this.postService.updatePost({
-      where: { id: Number(id) },
-      data: { published: true },
-    });
-  }
-
-  @Delete('post/:id')
-  async deletePost(@Param('id') id: string): Promise<PostModel> {
-    return this.postService.deletePost({ id: Number(id) });
+  async addUser(@Body() createUserDto: CreateUserDto) {
+    return await this.prisma.user.create({ data: createUserDto });
   }
 }

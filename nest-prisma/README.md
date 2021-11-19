@@ -12,21 +12,20 @@
 # インストール
 ```shell
 yarn add prisma --dev
-yarn prisma
-npx prisma init
+yarn prisma init
 ```
 
 - 生成されるファイル
 - schema.prisma データベースの接続とモデルの定義
 - .env 環境変数
 
-
+- 基本的にコマンドはyarn prisma 〇〇となる
 
 # モデルの生成
 - schema.prismaにモデルを定義する
 - コマンドで生成する
 ```shell
-npx prisma migrate dev --name init
+yarn prisma migrate dev --name init
 ```
 - データベースとマーグレーションファイルが生成される
 

@@ -4,6 +4,10 @@
   - [参考](#参考)
   - [型の生成](#型の生成)
   - [時間の取り扱い](#時間の取り扱い)
+  - [prisma](#prisma)
+  - [schema](#schema)
+  - [migration](#migration)
+  - [seeder](#seeder)
 
 
 
@@ -23,3 +27,45 @@ https://www.youtube.com/watch?v=lddaR8Y-gko&t=182s
 - デフォルトでgraphqlで時間を表現できないためgraphql-iso-dateというパッケージをインストールした
 - app.moduleでも定義する
 - 他にもやり方ありそう
+
+
+
+## prisma
+```shell
+yarn add prisma --dev
+yarn prisma init
+```
+
+- .envは.ignoreに追加して.env.exampleを追加した方が良いかも
+
+
+
+## schema
+- キーバリューではなくスペースで要素と型を記述
+- スキーマは基本的に必須項目で必須でないものは「?」を追加する
+- デコレーションによってデフォルトやidの定義ができる
+
+- 2つのスキーマ両方で同じようなものを定義するのめんどくさくない？
+  - ほとんどのケースでは同じようなスキーマになってしまう
+  - 一方で内部でのみ使用するといったこともあるので使いやすくなることもある
+
+
+
+## migration
+```shell
+yarn prisma migrate dev --name init
+```
+- 名前は必須
+- フラグをつけない場合後で聞かれる
+
+
+
+## seeder
+- シーダーはprisma内のファイルに記入
+- clientをインポートして作っていく
+- prisma用のコマンドを作ることによってシーダーを実行する
+- このときprismaファイル内でsrc内ではないのでスクリプト内にコマンドを記述すると動かない
+
+```shell
+yarn prisma db seed
+```

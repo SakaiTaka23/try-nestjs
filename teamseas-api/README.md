@@ -10,6 +10,7 @@
   - [seeder](#seeder)
   - [生成される型](#生成される型)
   - [Validation](#validation)
+  - [Subscriptions](#subscriptions)
 
 
 
@@ -100,3 +101,18 @@ yarn add prisma-nestjs-graphql --dev
 - 使い方
   - schema.prismaにコメントで直接付与させたいバリデーションルールを記述する
 
+
+
+## Subscriptions
+- 現状使用できるライブラリは2つある
+  - graphql-ws
+  - subscriptions-transport-ws
+- 公式のオススメではgraphql-wsだがapollo sandboxが対応していないため試したい場合は両方使う必要がある？
+- app.modulesにsubscriptionとして記入することで有効化
+- もう一つ必要なパッケージ
+```shell
+yarn add graphql-subscriptions
+```
+- 有効にするもののインストールは必要なさそう
+- パブサブ形式で更新を行う
+- あるクエリが動いたらパブリッシュしてサブスクライバに対してデータを送信する

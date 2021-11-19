@@ -9,6 +9,7 @@
   - [migration](#migration)
   - [seeder](#seeder)
   - [生成される型](#生成される型)
+  - [Validation](#validation)
 
 
 
@@ -83,3 +84,19 @@ yarn prisma db seed
 - 今回モデルに関してはprismaの関数で定義されるため再定義する必要はない
 - モデルの型が必要な場合はgraphqlのスキーマから生成された型を使うことができる
 - dtoに関してもそれぞれに適した型が存在してくれるのでほとんどの場合必要なさそう
+
+
+
+## Validation
+- 何も実装しなくてもcreateなどで必須の値が入っていない場合は400を返してくれる
+- nestではデフォルトでバリデーションができる仕組みがある
+- 一方でクラスが必要になる
+  - 今回はクラスはprismaが自動で生成したものを使っている
+- ライブラリをインストールして解決(**もう少し良い解決方法がないか模索しておく**)
+```shell
+yarn add prisma-nestjs-graphql --dev
+```
+- class-validator class-transformerもインストールしておく
+- 使い方
+  - schema.prismaにコメントで直接付与させたいバリデーションルールを記述する
+

@@ -12,8 +12,11 @@ export class DonationsService {
     });
   }
 
-  findAll() {
-    return this.prisma.donation.findMany();
+  findAll(orderBy?: { field?: string; direction?: string }) {
+    const { field = 'createdAt', direction = 'desc' } = orderBy || {};
+    return this.prisma.donation.findMany({
+      orderBy: { [field]: direction },
+    });
   }
 
   findOne(donationWhereUniqueInput: Prisma.DonationWhereUniqueInput) {

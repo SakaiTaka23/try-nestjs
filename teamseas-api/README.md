@@ -8,6 +8,7 @@
   - [schema](#schema)
   - [migration](#migration)
   - [seeder](#seeder)
+  - [生成される型](#生成される型)
 
 
 
@@ -72,3 +73,13 @@ yarn prisma migrate dev --name init
 ```shell
 yarn prisma db seed
 ```
+
+
+
+## 生成される型
+- その型においてuniqueidを保持した型やアップデート用の型も存在する
+- そのままリゾルバーの引数として受け取っても大丈夫そう
+  
+- 今回モデルに関してはprismaの関数で定義されるため再定義する必要はない
+- モデルの型が必要な場合はgraphqlのスキーマから生成された型を使うことができる
+- dtoに関してもそれぞれに適した型が存在してくれるのでほとんどの場合必要なさそう

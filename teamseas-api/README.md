@@ -11,6 +11,7 @@
   - [生成される型](#生成される型)
   - [Validation](#validation)
   - [Subscriptions](#subscriptions)
+  - [Prisma Studio](#prisma-studio)
 
 
 
@@ -116,3 +117,14 @@ yarn add graphql-subscriptions
 - 有効にするもののインストールは必要なさそう
 - パブサブ形式で更新を行う
 - あるクエリが動いたらパブリッシュしてサブスクライバに対してデータを送信する
+
+
+
+## Prisma Studio
+- 起動コマンド
+```shell
+yarn prisma studio
+```  
+
+- データの表示や追加・変更ができる
+- 削除は出来なさそう？

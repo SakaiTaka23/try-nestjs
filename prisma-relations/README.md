@@ -13,3 +13,9 @@ https://www.prisma.io/docs/concepts/components/prisma-schema/relations/one-to-ma
 https://www.prisma.io/docs/concepts/components/prisma-client/relation-queries
 - データ取得時にincludeを入れることによって取得できる
 - selectを入れる場合は元のテーブルとリレーションで一つのオブジェクトに入れる
+
+## Many-to-many
+**Prisma schema**
+https://www.prisma.io/docs/concepts/components/prisma-schema/relations/many-to-many-relations
+- ピボットテーブルも含めてスキーマに定義する
+- リレーションの組み方はm-1と同じ

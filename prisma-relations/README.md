@@ -19,3 +19,13 @@ https://www.prisma.io/docs/concepts/components/prisma-client/relation-queries
 https://www.prisma.io/docs/concepts/components/prisma-schema/relations/many-to-many-relations
 - ピボットテーブルも含めてスキーマに定義する
 - リレーションの組み方はm-1と同じ
+
+## seed
+- fakerを使うことにより擬似データを作る
+
+```shell
+yarn add faker @types/faker --dev
+```
+- 使えるリスト
+
+https://www.npmjs.com/package/faker

@@ -14,7 +14,14 @@ async function main() {
       },
     },
   });
-  console.dir(allUsers, { depth: null });
+  // console.dir(allUsers, { depth: null });
+
+  const postCategories = await prisma.post.findMany({
+    include: {
+      categories: true,
+    },
+  });
+  console.dir(postCategories, { depth: null });
 }
 
 main()

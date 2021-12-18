@@ -12,6 +12,19 @@ https://docs.nestjs.com/microservices/grpc
 
 ## インストール
 
+- gRPCの設定に必要
+
+```shell
+yarn add @nestjs/microservices
+```
+
+- gRPCのライブラリ
+
 ```shell
 yarn add @grpc/grpc-js @grpc/proto-loader
 ```
+
+## 立ち上げ
+
+- main.tsの設定をマイクロサービス時のものにする
+- nest-cli.jsonのコンパイラ設定を変更する

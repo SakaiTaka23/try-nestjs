@@ -10,6 +10,8 @@
 
 https://docs.nestjs.com/microservices/grpc
 
+https://qiita.com/mizozobu/items/8399c51e9a35cfa60e36
+
 ## インストール
 
 - gRPCの設定に必要
